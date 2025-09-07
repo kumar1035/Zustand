@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# 📚 My Course List (React + Zustand)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple course management app built with **React** and **Zustand** for state management.  
+This project lets you add, mark as completed, and delete courses — with persistent storage.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
+- **Add new courses** with a simple form.
+- **Mark courses as completed** with a checkbox.
+- **Delete courses** individually.
+- **Persistent state** using Zustand (data remains after refresh).
+- **Dynamic styling**:
+  - ✅ Completed → Green background
+  - ❌ Incomplete → Dark gray background
+- Fully component-based architecture.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠 Tech Stack
+- **React** – UI library
+- **Zustand** – State management
+- **CSS** – Styling
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 📂 Folder Structure
+src/
+│
+├── app/
+│ └── courseStore.jsx # Zustand store
+│
+├── components/
+│ ├── CourseForm.jsx # Add course form
+│ └── CourseList.jsx # List of courses with actions
+│
+├── App.js # Main app container
+├── index.js # Entry point
+└── App.css / index.css # Styles
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ⚡ How It Works
+1. **State Management with Zustand**  
+   - A central store (`courseStore.jsx`) manages the list of courses and actions (add, delete, toggle completion).
+   - Components subscribe to only the parts of the state they need, improving performance.
+   
+2. **Component Flow**
+CourseForm → dispatch addCourse() → Store updates
+CourseList → reads courses from Store
+Checkbox/Delete Button → dispatch toggleCourse()/removeCourse()
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Persistent Storage**
+- The store uses Zustand's middleware to store courses in `localStorage`.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📦 Installation & Setup
+```bash
+# Clone the repository
+git clone <your-repo-url>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Install dependencies
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Start development server
+npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Conclusion – Zustand Overview & Key Takeaways
 
-### Code Splitting
+Zustand is a lightweight, unopinionated state management library for React that makes managing global and component-level state simple and efficient. It is built around React hooks, allowing developers to consume state directly in components without unnecessary boilerplate.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🔹 Why Zustand Works Well
 
-### Analyzing the Bundle Size
+Unopinionated – Gives freedom to structure your store as you want, without enforcing strict patterns like Redux.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Hooks-based API – Uses React hooks (useStore) for reading and updating state, making it easy and familiar for React developers.
 
-### Making a Progressive Web App
+Minimal Boilerplate – No need for actions, reducers, or context wrappers; store setup is quick and clean.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Performance Friendly – Components only re-render when the part of the state they use changes.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Persistent State Support – Can store data in localStorage or sessionStorage for persistence across reloads.
