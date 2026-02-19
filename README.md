@@ -20,7 +20,7 @@ This project lets you add, mark as completed, and delete courses — with persis
 ## 🛠 Tech Stack
 - **React** – UI library
 - **Zustand** – State management
-- **CSS** – Styling
+- **CSS** –  for styling 
 
 ---
 
